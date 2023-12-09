@@ -1,6 +1,12 @@
 #include<iostream>
 
+#include <iomanip>
+
 using namespace std;
+
+
+
+
 
 template<class Item>
 class binary_tree_node {
@@ -48,6 +54,18 @@ private:
 	binary_tree_node* right_field;
 };
 
+template <class Item, class SizeType>
+void print(const binary_tree_node<Item>* root_ptr,
+	SizeType depth)
+{
+	if (root_ptr != NULL)
+	{
+		print(root_ptr->right(), depth + 1);
+		cout << setw(4 * depth) << "" << root_ptr->data() << endl;
+		print(root_ptr->left(), depth + 1);
+	}
+}
+
 template<class Item>
 void tree_clear(binary_tree_node<Item>*& node_ptr) {
 	if (node_ptr != NULL) {
@@ -84,6 +102,6 @@ int main() {
 	l_node.set_data(3);
 	node.set_left(&l_node);
 	node.set_right(&r_node);
-	
-
+	print(&node, 0);
+	return 0;
 }
