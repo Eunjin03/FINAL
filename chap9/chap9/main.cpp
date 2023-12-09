@@ -50,7 +50,7 @@ void super_write_vertical(int n) {
 
 void random_frantal(int left_hight, int right_hight, int width, int epslion) {
 	double mid_hight = 0;
-	double rand_num = (rand() % (left_hight * 2)) - left_hight;
+	double rand_num = (rand() % (width * 2)) - width;
 
 	assert(width > 0);
 	assert(epslion > 0);
